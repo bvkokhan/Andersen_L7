@@ -57,7 +57,7 @@ class Calculator {
         if (Number.isInteger(computation)) {
             this.currentOperand = computation;
         } else {
-            this.currentOperand = computation.toFixed(8);
+            this.currentOperand = +computation.toFixed(8).replace(/([0-9]+(\.[0-9]+[1-9])?)(\.?0+$)/,'$1');
         }
         if (!isFinite(computation)) {
             this.currentOperand = 'Error';
